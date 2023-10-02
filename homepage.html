@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background-color: #f0f0f0;
+}
+
+.chat-container {
+width: 400px;
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+overflow: hidden;
+}
+
+.chat {
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+
+.chat-header {
+display: flex;
+align-items: center;
+padding: 10px 20px;
+background: linear-gradient(to right, #2980b9, #6dd5fa);
+color: white;
+}
+
+.avatar {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: #3498db;
+margin-right: 10px;
+}
+
+.chat-info {
+display: flex;
+flex-direction: column;
+}
+
+.chat-name {
+font-weight: bold;
+}
+
+.chat-status {
+font-size: 12px;
+}
+
+.chat-messages {
+flex: 1;
+padding: 20px;
+overflow-y: auto;
+}
+
+.message {
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 10px;
+}
+
+.received {
+background-color: #ecf0f1;
+align-self: flex-start;
+}
+
+.sent {
+background-color: #3498db;
+color: white;
+align-self: flex-end;
+}
+
+.chat-input {
+display: flex;
+align-items: center;
+padding: 10px 20px;
+border-top: 1px solid #ddd;
+}
+
+textarea {
+flex: 1;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+resize: none;
+}
+
+button {
+padding: 10px 20px;
+font-size: 16px;
+background-color: #3498db;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-left: 10px;
+}
+
+button:hover {
+background-color: #2980b9;
+}
+
+</style>
+<title>MasterGPT</title>
+</head>
+<body>
+<div class="chat-container">
+<div class="chat">
+<div class="chat-header">
+<div class="avatar"></div>
+<div class="chat-info">
+<div class="chat-name">MasterGPT</div>
+<div class="chat-status">Online</div>
+</div>
+</div>
+<div class="chat-messages" id="chatMessages">
+<div class="message received">Hello! I'm MasterGPT. Ask your question ?</div>
+</div>
+<div class="chat-input">
+<textarea id="userMessage" placeholder="Type your message..." rows="1"></textarea>
+<button onclick="sendMessage()">Send</button>
+</div>
+</div>
+</div>
+<script>
+function sendMessage() {
+const userMessage = document.getElementById('userMessage').value;
+if (!userMessage) return;
+
+const chatMessages = document.getElementById('chatMessages');
+const userMessageDiv = document.createElement('div');
+userMessageDiv.className = 'message sent';
+userMessageDiv.textContent = userMessage;
+chatMessages.appendChild(userMessageDiv);
+
+document.getElementById('userMessage').value = ''; // Clear the input field after sending
+
+// Simulate a response from the chatbot after a short delay
+setTimeout(() => {
+const chatbotMessageDiv = document.createElement('div');
+chatbotMessageDiv.className = 'message received';
+chatbotMessageDiv.textContent = 'I received your message: ' + userMessage;
+chatMessages.appendChild(chatbotMessageDiv);
+chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+}, 500);
+}
+
+</script>
+</body>
+</html>
