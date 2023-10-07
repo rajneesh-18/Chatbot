@@ -17,8 +17,8 @@ background-color: #f0f0f0;
 .chat-container {
 width: 400px;
 background-color: #fff;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+border-radius: 15px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 overflow: hidden;
 }
 
@@ -32,7 +32,7 @@ height: 100%;
 display: flex;
 align-items: center;
 padding: 10px 20px;
-background: linear-gradient(to right, #2980b9, #6dd5fa);
+background: linear-gradient(170deg, #1e0bf1 , #a91f92 );
 color: white;
 }
 
@@ -40,7 +40,8 @@ color: white;
 width: 40px;
 height: 40px;
 border-radius: 50%;
-background-color: #3498db;
+background-image: url("profile.jpg");
+background-size: cover;
 margin-right: 10px;
 }
 
@@ -75,7 +76,7 @@ align-self: flex-start;
 }
 
 .sent {
-background-color: #3498db;
+background-image: linear-gradient(170deg,#8034a7 0%,#1097f7 100%);
 color: white;
 align-self: flex-end;
 }
@@ -92,23 +93,29 @@ flex: 1;
 padding: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
+border: 1px solid ;
 font-size: 16px;
 resize: none;
+}
+::placeholder
+{
+    font-weight: 550;
 }
 
 button {
 padding: 10px 20px;
 font-size: 16px;
-background-color: #3498db;
+background-image: linear-gradient(163deg,#0000ff 0%,#1097f8 100%);
 color: white;
 border: none;
-border-radius: 5px;
+border-radius: 50px;
 cursor: pointer;
 margin-left: 10px;
 }
 
 button:hover {
-background-color: #2980b9;
+background-image: linear-gradient(163deg,#00642f 0%,#13034b 100%);
+color: cadetblue;
 }
 
 </style>
